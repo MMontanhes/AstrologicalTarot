@@ -1,0 +1,105 @@
+/* elementos básicos */
+
+
+
+body { 
+        font: 100% mangal,arial,sans-serif;
+	margin: 0; 
+	padding: 0;
+        }
+
+a {
+outline: none;
+text-decoration: none;
+
+}
+
+
+a:link {
+        text-decoration:none;
+        color:#888888;
+        }
+
+a:visited {
+        text-decoration:none;
+        color:#888888;
+        }
+
+a:active {
+        text-decoration:none;
+        color:#888888;
+        }
+
+.cursor {
+        font: 100% mangal,arial,sans-serif;
+	margin: 0; 
+	padding: 0;
+        }
+
+.cartas
+{
+
+	list-style: none;
+}
+
+.cartas a
+{
+
+        outline: none;
+        text-decoration:none;
+}
+
+.cartas a .preview
+{
+	display: none;
+        text-decoration:none;
+        outline: none;
+}
+
+
+.hoverbox a:hover .preview
+{
+	display: block;
+	position: absolute;
+	top: 70px;
+	left: 790px;
+	z-index: 1;
+        outline: none;
+}
+
+
+.cartas li
+{
+	background: #eee;
+	border-color: #ddd #bbb #aaa #ccc;
+	border-style: solid;
+	border-width: 0px;
+	color: inherit;
+	display: inline;
+	float: left;
+	margin: 3px;
+	padding: 5px;
+	position: relative;
+}
+
+.hoverbox li
+{
+	background: #eee;
+	border-color: #ddd #bbb #aaa #ccc;
+	border-style: solid;
+	border-width: 0px;
+	color: inherit;
+	display: flex;
+	flex-wrap: wrap;
+	float: left;
+	margin: 3px;
+	padding: 5px;
+    }
+
+.hoverbox .preview
+{
+	border: none;
+	width: 249px;
+	height: 365px;
+}
+

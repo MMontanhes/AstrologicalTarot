@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>Tarô Astrológico</title>
+
+<link rel="SHORTCUT ICON" href="favicon_32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon_16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon_32x32.png"/>
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon_64x64.png"/>
+<link rel="icon" type="image/png" sizes="128x128" href="/favicon_128x128.png"/>
+ <link rel="apple-touch-icon" sizes="192x192" href="favicon_192x192.png">
+
+		<link rel="STYLESHEET" type="text/css" href="index_mobile.css">
+		
+		<style type="text/css">
+		
+			body {
+			background-color: black;
+			}
+		
+			.Header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+	     	}
+			
+			.Header > * {
+			margin: 5% auto;
+			}
+		
+			a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
+			text-align: center;
+			}
+
+			#textInput {
+			color: white;
+			background-color: black;
+			}
+			.center-input {
+			display: block;
+			margin: 0 auto;
+			}
+
+			<!-- Posição das divs -->
+
+			#cartaselecionada {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			}
+
+			#cartaselecionada > * {
+			flex: 1 0 33.33%;
+			max-width: 33.33%;
+			}
+ 
+			#baralho {
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(13, 1fr);
+			grid-template-rows: repeat(6, 1fr);
+			}
+
+			#baralho img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			}
+  
+        </style>
+		 
+<!-- Verificação do placeholder -->		 
+		 
+		 <script>
+			window.onload = function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var expression = urlParams.get('Expressaodecorte');
+  if (expression) {
+    document.getElementById('textInput').placeholder = expression;
+    document.getElementById('textInput').value = expression;
+    localStorage.setItem("lastValue", expression);
+  } else {
+    var lastValue = localStorage.getItem("lastValue");
+    if (lastValue) {
+      document.getElementById('textInput').placeholder = lastValue;
+      document.getElementById('textInput').value = lastValue;
+    } else {
+      document.getElementById('textInput').placeholder = "Expressão de Corte";
+    }
+  }
+}
+		</script>
+		
+		
+		<!-- Script embaralhador -->  
+
+		<script type="text/javascript" src="jquery-1.2.6.js"></script>
+		<script type="text/javascript" src="jquery.shuffle.js"></script>
+		
+		<script type="text/javascript">
+		function legendas(){
+		legendas = window.open('legendas.html','legendas','width=440,height=600,status=no,scroll=no,scrolling=auto,top=37,left=764,resizable=no');
+		}
+		</script>
+		
+		<!-- Função embaralhar -->
+
+		<script type="text/javascript">
+		jQuery(function($){
+		var urlParams = new URLSearchParams(location.search);
+		var modificador = urlParams.get('Expressaodecorte');
+		var arrayCaracteres = modificador.split('');
+		var somaValoresASC = arrayCaracteres.reduce(function(total, caractere) {
+			return total + caractere.charCodeAt(0);
+			}, 0);
+			$('#baralho').shuffle(somaValoresASC);
+		});
+		</script>
+
+		<!-- Função virar carta e aplicar hoverbox -->  
+
+<script type="text/javascript">
+		
+	function virar(id,arquivo,id2){
+		var img = document.getElementById(id);
+		img.src = arquivo;
+		
+		var img = document.createElement('img');
+		img.setAttribute("src", arquivo);
+		img.setAttribute("width", "auto");
+		img.setAttribute("height", "auto");
+		img.setAttribute("onclick", "window.open('" + arquivo + "', '_blank')");
+		document.getElementById("cartaselecionada").appendChild(img);
+	}
+		
+</script>
+
+
+		
+</head>
+<body>
+
+  <script>
+    window.addEventListener("load", function() {
+      setTimeout(function() {
+        window.addEventListener("scroll", function() {
+          var element = document.querySelector("div[style*='text-align:right;position:fixed;bottom:3px;right:3px;width:100%;z-index:999999;cursor:pointer;line-height:0;display:block;']");
+          var elementPosition = element.getBoundingClientRect();
+            element.style.display = "none";
+        });
+      }, 20000);
+    });
+  </script>
+
+		<header style="display: flex; align-items: center; justify-content: center;">
+			
+			<div name="Header1" class="Header">
+			
+			    <a href="index.html"><font color="#663300" size="2" title="back">&lt;&lt;</font></a>
+				
+				<script type="text/javascript">
+					today = new Date()
+					images_number = 10
+					seconds = today.getSeconds(2009,4,31,17,01,50)
+					number = seconds % images_number
+
+					if   (number == 0) document.write("<a href='#' onclick=-legendas()'><img src='constelacoes/c1.png' border=0></a>")
+					if   (number == 1) document.write("<a href='#' onclick=-'legendas()'><img src='constelacoes/c2.png' border=0></a>")
+					if   (number == 2) document.write("<a href='#' onclick=-'legendas()'><img src='constelacoes/c3.png' border=0></a>")
+					if   (number == 3) document.write("<a href='#' onclick='legendas()'><img src='constelacoes/c4.png' border=0></a>")
+					if   (number == 4) document.write("<a href='#' onclick='legendas()'><img src='constelacoes/c5.png' border=0></a>")
+					if   (number == 5) document.write("<a href='#' onclick='legendas()'><img src='constelacoes/c6.png' border=0></a>")
+					if   (number == 6) document.write("<a href='#' onclick='legendas()'><img src='constelacoes/c7.png' border=0></a>")
+					if   (number == 7) document.write("<a href='#' onclick='legendas()'><img src='constelacoes/c8.png' border=0></a>")
+					if   (number == 8) document.write("<a href='#' onclick='legendas()'><img src='constelacoes/c9.png' border=0></a>")
+					if   (number == 9) document.write("<a href='#' onclick='legendas()'><img src='constelacoes/c10.png' border=0></a>")
+				</script>
+
+			</div>
+			
+			<div name="Header2" class="Header">
+					<a href="index_mobile.html?Expressaodecorte=" onclick="this.href+=document.getElementById('textInput').value">
+					<img src="baralho.png" title="embaralhar" onMouseOver="this.src='baralhocortado.png'" onMouseOut="this.src='baralho.png'" border="0" width="49" height="50" alt=""></a>
+					<input class="center-input" style="text-align: center; width: 130px;" type="text" id="textInput" name="Expressaodecorte" placeholder=""></input>
+			</div>
+			
+		</header>
+				
+		
+        
+		<!-- 78 Cartas embaralhadas --> 
+
+            <div id="baralho" class="cartas">
+		  
+            <a href="#" id="oo1"><img onclick="virar('o1','cartas_png/o1.png','oo1');" src="versopeq.png" id="o1" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+     		<a href="#" id="oo2"><img onclick="virar('o2','cartas_png/o2.png','oo2');" src="versopeq.png" id="o2" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			<a href="#" id="oo3"><img onclick="virar('o3','cartas_png/o3.png','oo3');" src="versopeq.png" id="o3" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			<a href="#" id="oo4"><img onclick="virar('o4','cartas_png/o4.png','oo4');" src="versopeq.png" id="o4" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			<a href="#" id="oo5"><img onclick="virar('o5','cartas_png/o5.png','oo5');" src="versopeq.png" id="o5" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			<a href="#" id="oo6"><img onclick="virar('o6','cartas_png/o6.png','oo6');" src="versopeq.png" id="o6" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+    		<a href="#" id="oo7"><img onclick="virar('o7','cartas_png/o7.png','oo7');" src="versopeq.png" id="o7" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			<a href="#" id="oo8"><img onclick="virar('o8','cartas_png/o8.png','oo8');" src="versopeq.png" id="o8" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			<a href="#" id="oo9"><img onclick="virar('o9','cartas_png/o9.png','oo9');" src="versopeq.png" id="o9" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+	        <a href="#" id="oo10"><img onclick="virar('o10','cartas_png/o10.png','oo10');" src="versopeq.png" id="o10" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			<a href="#" id="oov"><img onclick="virar('ov','cartas_png/ov.png','oov');" src="versopeq.png" id="ov" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			<a href="#" id="ooc"><img onclick="virar('oc','cartas_png/oc.png','ooc');" src="versopeq.png" id="oc" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			<a href="#" id="ood"><img onclick="virar('od','cartas_png/od.png','ood');" src="versopeq.png" id="od" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+		    <a href="#" id="oor"><img onclick="virar('or','cartas_png/or.png','oor');" src="versopeq.png" id="or" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			
+
+            <a href="#" id="pp1"><img onclick="virar('p1','cartas_png/p1.png','pp1');" src="versopeq.png" id="p1" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="pp2"><img onclick="virar('p2','cartas_png/p2.png','pp2');" src="versopeq.png" id="p2" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="pp3"><img onclick="virar('p3','cartas_png/p3.png','pp3');" src="versopeq.png" id="p3" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="pp4"><img onclick="virar('p4','cartas_png/p4.png','pp4');" src="versopeq.png" id="p4" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="pp5"><img onclick="virar('p5','cartas_png/p5.png','pp5');" src="versopeq.png" id="p5" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="pp6"><img onclick="virar('p6','cartas_png/p6.png','pp6');" src="versopeq.png" id="p6" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="pp7"><img onclick="virar('p7','cartas_png/p7.png','pp7');" src="versopeq.png" id="p7" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="pp8"><img onclick="virar('p8','cartas_png/p8.png','pp8');" src="versopeq.png" id="p8" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="pp9"><img onclick="virar('p9','cartas_png/p9.png','pp9');" src="versopeq.png" id="p9" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="pp10"><img onclick="virar('p10','cartas_png/p10.png','pp10');" src="versopeq.png" id="p10" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ppv"><img onclick="virar('pv','cartas_png/pv.png','ppv');" src="versopeq.png" id="pv" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ppc"><img onclick="virar('pc','cartas_png/pc.png','ppc');" src="versopeq.png" id="pc" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ppd"><img onclick="virar('pd','cartas_png/pd.png','ppd');" src="versopeq.png" id="pd" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ppr"><img onclick="virar('pr','cartas_png/pr.png','ppr');" src="versopeq.png" id="pr" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            
+            <a href="#" id="ee1"><img onclick="virar('e1','cartas_png/e1.png','ee1');" src="versopeq.png" id="e1" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ee2"><img onclick="virar('e2','cartas_png/e2.png','ee2');" src="versopeq.png" id="e2" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ee3"><img onclick="virar('e3','cartas_png/e3.png','ee3');" src="versopeq.png" id="e3" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ee4"><img onclick="virar('e4','cartas_png/e4.png','ee4');" src="versopeq.png" id="e4" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ee5"><img onclick="virar('e5','cartas_png/e5.png','ee5');" src="versopeq.png" id="e5" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ee6"><img onclick="virar('e6','cartas_png/e6.png','ee6');" src="versopeq.png" id="e6" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ee7"><img onclick="virar('e7','cartas_png/e7.png','ee7');" src="versopeq.png" id="e7" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ee8"><img onclick="virar('e8','cartas_png/e8.png','ee8');" src="versopeq.png" id="e8" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ee9"><img onclick="virar('e9','cartas_png/e9.png','ee9');" src="versopeq.png" id="e9" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ee10"><img onclick="virar('e10','cartas_png/e10.png','ee10');" src="versopeq.png" id="e10" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="eev"><img onclick="virar('ev','cartas_png/ev.png','eev');" src="versopeq.png" id="ev" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="eec"><img onclick="virar('ec','cartas_png/ec.png','eec');" src="versopeq.png" id="ec" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="eed"><img onclick="virar('ed','cartas_png/ed.png','eed');" src="versopeq.png" id="ed" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="eer"><img onclick="virar('er','cartas_png/er.png','eer');" src="versopeq.png" id="er" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+
+            <a href="#" id="cc1"><img onclick="virar('c1','cartas_png/c1.png','cc1');" src="versopeq.png" id="c1" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="cc2"><img onclick="virar('c2','cartas_png/c2.png','cc2');" src="versopeq.png" id="c2" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="cc3"><img onclick="virar('c3','cartas_png/c3.png','cc3');" src="versopeq.png" id="c3" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="cc4"><img onclick="virar('c4','cartas_png/c4.png','cc4');" src="versopeq.png" id="c4" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="cc5"><img onclick="virar('c5','cartas_png/c5.png','cc5');" src="versopeq.png" id="c5" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="cc6"><img onclick="virar('c6','cartas_png/c6.png','cc6');" src="versopeq.png" id="c6" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="cc7"><img onclick="virar('c7','cartas_png/c7.png','cc7');" src="versopeq.png" id="c7" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="cc8"><img onclick="virar('c8','cartas_png/c8.png','cc8');" src="versopeq.png" id="c8" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="cc9"><img onclick="virar('c9','cartas_png/c9.png','cc9');" src="versopeq.png" id="c9" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="cc10"><img onclick="virar('c10','cartas_png/c10.png','cc10');" src="versopeq.png" id="c10" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ccv"><img onclick="virar('cv','cartas_png/cv.png','ccv');" src="versopeq.png" id="cv" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ccc"><img onclick="virar('cc','cartas_png/cc.png','ccc');" src="versopeq.png" id="cc" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ccd"><img onclick="virar('cd','cartas_png/cd.png','ccd');" src="versopeq.png" id="cd" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+            <a href="#" id="ccr"><img onclick="virar('cr','cartas_png/cr.png','ccr');" src="versopeq.png" id="cr" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+
+                  <a href="#" id="llouco"><img onclick="virar('louco','cartas_png/louco.png','llouco');" src="versopeq.png" id="louco" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                   <a href="#" id="mmago"><img onclick="virar('mago','cartas_png/mago.png','mmago');" src="versopeq.png" id="mago" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			<a href="#" id="ssacerdotiza"><img onclick="virar('sacerdotiza','cartas_png/sacerdotiza.png','ssacerdotiza');" src="versopeq.png" id="sacerdotiza" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			 <a href="#" id="iimperatriz"><img onclick="virar('imperatriz','cartas_png/imperatriz.png','iimperatriz');" src="versopeq.png" id="imperatriz" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+              <a href="#" id="iimperador"><img onclick="virar('imperador','cartas_png/imperador.png','iimperador');" src="versopeq.png" id="imperador" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+              <a href="#" id="ssacerdote"><img onclick="virar('sacerdote','cartas_png/sacerdote.png','ssacerdote');" src="versopeq.png" id="sacerdote" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+              <a href="#" id="nnamorados"><img onclick="virar('namorados','cartas_png/namorados.png','nnamorados');" src="versopeq.png" id="namorados" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                  <a href="#" id="ccarro"><img onclick="virar('carro','cartas_png/carro.png','ccarro');" src="versopeq.png" id="carro" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                <a href="#" id="jjustica"><img onclick="virar('justica','cartas_png/justica.png','jjustica');" src="versopeq.png" id="justica" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                <a href="#" id="eeremita"><img onclick="virar('eremita','cartas_png/eremita.png','eeremita');" src="versopeq.png" id="eremita" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+          <a href="#" id="rrodadafortuna"><img onclick="virar('rodadafortuna','cartas_png/rodadafortuna.png','rrodadafortuna');" src="versopeq.png" id="rodadafortuna" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                  <a href="#" id="fforca"><img onclick="virar('forca','cartas_png/forca.png','fforca');" src="versopeq.png" id="forca" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+              <a href="#" id="eenforcado"><img onclick="virar('enforcado','cartas_png/enforcado.png','eenforcado');" src="versopeq.png" id="enforcado" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                  <a href="#" id="mmorte"><img onclick="virar('morte','cartas_png/morte.png','mmorte');" src="versopeq.png" id="morte" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+             <a href="#" id="ttemperanca"><img onclick="virar('temperanca','cartas_png/temperanca.png','ttemperanca');" src="versopeq.png" id="temperanca" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                  <a href="#" id="ddiabo"><img onclick="virar('diabo','cartas_png/diabo.png','ddiabo');" src="versopeq.png" id="diabo" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                  <a href="#" id="ttorre"><img onclick="virar('torre','cartas_png/torre.png','ttorre');" src="versopeq.png" id="torre" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                <a href="#" id="eestrela"><img onclick="virar('estrela','cartas_png/estrela.png','eestrela');" src="versopeq.png" id="estrela" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                    <a href="#" id="llua"><img onclick="virar('lua','cartas_png/lua.png','llua');" src="versopeq.png" id="lua" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                    <a href="#" id="ssol"><img onclick="virar('sol','cartas_png/lua.png','ssol');" src="versopeq.png" id="sol" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+             <a href="#" id="jjulgamento"><img onclick="virar('julgamento','cartas_png/julgamento.png','jjulgamento');" src="versopeq.png" id="julgamento" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+                  <a href="#" id="mmundo"><img onclick="virar('mundo','cartas_png/mundo.png','mmundo');" src="versopeq.png" id="mundo" border="0" alt=""><img src="verso.png" class="preview" alt=""></a>
+			</div>
+	
+		<div class="hoverbox" id="cartaselecionada">
+		</div>
+
+</body>
+</html>
