@@ -1,0 +1,202 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
+
+<head>
+
+<title>Tarô Astrológico</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Language" content="pt-br">
+<meta charset="UTF-8">
+ 
+<link rel="SHORTCUT ICON" href="favicon_32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon_16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon_32x32.png"/>
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon_64x64.png"/>
+<link rel="icon" type="image/png" sizes="128x128" href="/favicon_128x128.png"/>
+ <link rel="apple-touch-icon" sizes="192x192" href="favicon_192x192.png">
+
+<link rel="STYLESHEET" type="text/css" href="index.css">
+
+<!-- Preload das constelações -->  
+
+<style type="text/css">
+.hiddenpic {display:none;}
+#textInput {
+    color: white;
+    background-color: black;
+}
+.center-input {
+    display: block;
+    margin: 0 auto;
+}
+</style>
+
+<!-- Verificação do placeholder -->		 
+		 
+<script>
+			window.onload = function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var expression = urlParams.get('Expressaodecorte');
+  if (expression) {
+    document.getElementById('textInput').placeholder = expression;
+    document.getElementById('textInput').value = expression;
+    localStorage.setItem("lastValue", expression);
+  } else {
+    var lastValue = localStorage.getItem("lastValue");
+    if (lastValue) {
+      document.getElementById('textInput').placeholder = lastValue;
+      document.getElementById('textInput').value = lastValue;
+    } else {
+      document.getElementById('textInput').placeholder = "Expressão de Corte";
+    }
+  }
+}
+		</script>
+
+
+<!-- Janela pop-up - legendas e informações -->  
+
+		<script type="text/javascript">
+		function legendas(){
+		legendas = window.open('legendas.html','legendas','width=440,height=600,status=no,scroll=no,scrolling=auto,top=37,left=764,resizable=no');
+		leitura = window.open('legendas_cartas.html','leitura','width=440,height=600,status=no,scroll=no,scrolling=auto,top=37,left=494,resizable=no');
+		}
+		</script>
+
+
+</head>
+
+
+<!--...............................................................................................................................................................--> 
+
+
+<body scroll="no" background="fundo.jpg" onclick="legendas.focus();leitura.focus();">
+
+
+<!--....................... Menu .......................--> 
+
+<div align="center" style="position: absolute; width: 181px; height: 282px; z-index: 6; left: 21px; top: 9px" id="menu">
+	<p align="center"> 
+
+<b><font face="Arial" color="#FFFFFF" size="4">
+	<br>
+	Tarô Astrológico</font><font size="2" face="Times New Roman" color="#643200"><br>
+	<br>
+
+<!-- Get the textInput "Palavra de Corte" to pass to the next page --> 
+
+	
+<!-- Sort one constelation --> 
+
+<script type="text/javascript">
+today = new Date()
+images_number = 10
+seconds = today.getSeconds(2009,4,31,17,01,50)
+number = seconds % images_number
+
+if   (number == 0) document.write("<img src='constelacoes/c1.png' border=0>")
+if   (number == 1) document.write("<img src='constelacoes/c2.png' border=0>")
+if   (number == 2) document.write("<img src='constelacoes/c3.png' border=0>")
+if   (number == 3) document.write("<img src='constelacoes/c4.png' border=0>")
+if   (number == 4) document.write("<img src='constelacoes/c5.png' border=0>")
+if   (number == 5) document.write("<img src='constelacoes/c6.png' border=0>")
+if   (number == 6) document.write("<img src='constelacoes/c7.png' border=0>")
+if   (number == 7) document.write("<img src='constelacoes/c8.png' border=0>")
+if   (number == 8) document.write("<img src='constelacoes/c9.png' border=0>")
+if   (number == 9) document.write("<img src='constelacoes/c10.png' border=0>")
+</script>
+	
+	
+	<br>
+	</font></b><span style="font-size: 6pt"><br>
+	</span><font size="2" face="Arial">
+	<a href="#" onclick="legendas()">símbolos e leitura</a></font><font size="2"><br>
+	</font>
+	<font face="Arial"><font size="2"><br>
+	</font>
+	<font size="2" color="#C0C0C0">
+	<a href="index_cartas.html">ver todas </a></font><a href="index_cartas.html">
+	<font size="2">
+	as cartas</font></a></font><font size="2" color="#C0C0C0" face="Times New Roman"><br>
+	<br>
+	<br>
+	<input class="center-input" style="text-align: center;" type="text" id="textInput" name="Expressaodecorte" placeholder="Expressão de corte"></input>
+<br>
+<br>
+<br>
+&nbsp;</font><p align="center"> 
+
+<font size="2" face="Times New Roman" color="#643200">
+
+
+</div>
+
+
+<!--....................................................--> 
+
+
+<!-- Localização dos visitantes - http://www2.clustrmaps.com/user/ac4982c3 --> 
+
+<div style="position: absolute; width: 39px; height: 110px; z-index: 4; left: 37px; top: 409px" id="contador">
+<a target="_blank" href="http://www2.clustrmaps.com/user/ac4982c3">
+<img src="http://www2.clustrmaps.com/stats/maps-no_clusters/www.tarot.hd1.com.br-thumb.jpg" alt="Locations of visitors to this page" class="hiddenpic"></a>
+</div>
+
+
+<!-- Preload das constelações -->
+
+<img border="0" src="constelacoes/c9.png" width="124" height="96" class="hiddenpic" alt="">
+<img border="0" src="constelacoes/c8.png" width="124" height="96" class="hiddenpic" alt="">
+<img border="0" src="constelacoes/c7.png" width="124" height="96" class="hiddenpic" alt="">
+<img border="0" src="constelacoes/c6.png" width="124" height="96" class="hiddenpic" alt="">
+<img border="0" src="constelacoes/c5.png" width="124" height="96" class="hiddenpic" alt="">
+<img border="0" src="constelacoes/c4.png" width="124" height="96" class="hiddenpic" alt="">
+<img border="0" src="constelacoes/c3.png" width="124" height="96" class="hiddenpic" alt="">
+<img border="0" src="constelacoes/c2.png" width="124" height="96" class="hiddenpic" alt="">
+<img border="0" src="constelacoes/c1.png" width="124" height="96" class="hiddenpic" alt="">
+<img border="0" src="constelacoes/c10.png" width="124" height="96" class="hiddenpic" alt="">
+
+
+<!-- Sobre -->
+
+<div style="position: absolute; width: 10px; height: 85px; z-index: 10; left: 5px; top: 97px" id="camada4" align="center">
+	<a href="sobre.html"><font size="2" face="Times New Roman" color="#009933">s<br>o<br>b<br>r<br>e</font></a></div>
+	
+	
+<!-- Links -->
+
+<div style="position: absolute; width: 100px; height: 22px; z-index: 7; left: 65px; top: 486px" id="camada1">
+	<p align="center"><a href="links.html"><font color="#009933" size="2">Links</font></a></div>
+
+
+<!-- Embaralhar -->
+
+<div style="position: absolute; width: 100px; height: 73px; z-index: 7; left: 62px; top: 293px" id="camada2">
+	<p align="center">
+	<a href="index_b.html?Expressaodecorte=" onclick="this.href+=document.getElementById('textInput').value">
+	<img src="baralho.png" title="embaralhar" onMouseOver="this.src='baralhocortado.png'" onMouseOut="this.src='baralho.png'" alt="" border="0" width="49" height="50"></a><br>
+	<a href="index_b.html?Expressaodecorte=" onclick="this.href+=document.getElementById('textInput').value"><font color="#643200" size="2">Computador</font></a>
+
+	<a href="index_mobile.html?Expressaodecorte=" onclick="this.href+=document.getElementById('textInput').value">
+	<img src="baralho.png" title="embaralhar" onMouseOver="this.src='baralhocortado.png'" onMouseOut="this.src='baralho.png'" alt="" border="0" width="49" height="50"></a><br>
+	<a href="index_mobile.html?Expressaodecorte=" onclick="this.href+=document.getElementById('textInput').value"><font color="#643200" size="2">Mobile</font></a>
+
+</div>
+
+
+<!-- Doações -->
+
+<div style="position: absolute; width: 116px; height: 22px; z-index: 7; left: 57px; top: 533px" id="camada5">
+	<p align="center"><a href="donate.html">
+	<font face="Times New Roman" color="#0080C0" style="font-size: 9pt">Doação</font></a>
+</div>
+
+</body>
+
+</html>
